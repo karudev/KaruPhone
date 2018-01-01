@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:Phone:index{% endblock %}
+
+{% block body %}
+<h1>Téléphones</h1>
+    <div class="col-md-12 no-padding">
+        {% for phone in phones %}
+            <div class="col-md-3 padding-5">
+                <div class="col-md-12 no-padding phone {{ phone.state}}">
+                    <div class="col-md-12">
+                        <h4>{{ phone.name}}</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <i>{{ phone.operatingSystem}}</i>
+                    </div>
+                    <div class="col-md-12">{{ phone.storageCapacity|number_format(0,',',' ') }} Go</div>
+                    <div class="col-md-12">{{ phone.price }} €</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

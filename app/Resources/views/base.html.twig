@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% stylesheets
+            '@global_css'
+            output='assetic/global_css.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        <link rel="stylesheet" href="/KaruPhone/web/bundles/app/css/main.css" />
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+        <div class="container">
+            {% block body %}{% endblock %}
+
+        </div>
+
+    </body>
+        {% javascripts
+            '@global_js'
+            output='assetic/global_js.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% block javascripts %}{% endblock %}
+</html>
